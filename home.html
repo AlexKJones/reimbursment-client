@@ -17,36 +17,45 @@
 
     <section class="top-section">
 
-        <form id="sign-up-form">
-          <input name="credentials[name]" type="text" placeholder="Name">
-          <input name="credentials[Department]" type="text" placeholder="Department">
-          <input name="credentials[Supervisor]" type="text" placeholder="Supervisor">
-          <button type="submit">Sign Up</button>
+        <form class="B" id="sign-up-form">
+          <input id="makeEmpName" class="B" name="credentials[name]" type="text" placeholder="Name">
+          <input id="makeEmpDep" class="B" name="credentials[Department]" type="text" placeholder="Department">
+          <input id="makeEmpSup" class="B" name="credentials[Supervisor]" type="text" placeholder="Supervisor">
+          <button onclick="makeEmployee()">Sign Up</button>
         </form>
 
         <div id="sign-in-form" method="post">
-          <input id="nameField" name="credentials[name]" type="text" placeholder="name">
+          <input class="B" id="nameField" name="credentials[name]" type="text" placeholder="name">
           <button onclick="login()">Sign In</button>
         </div>
 
         <form id="sign-out">
-          <button type="submit">Sign Out</button>
+          <button onclick="logout()">Sign Out</button>
         </form>
 
-        <form id="new-request-form">
-            <input request_for="credentials[request_for]" type="text" placeholder="request_for">
-            <input req_funds="credentials[req_funds]" type="text" placeholder="req_funds">
-            <input req_type="credentials[req_type]" type="text" placeholder="req_type">
-            <input info="credentials[info]" type="text" placeholder="info">
-            <input pass_grade="credentials[pass_grade]" type="text" placeholder="pass_grade">
-            <input event_date="credentials[event_date]" type="date" placeholder="event_date">
-            <button type="submit">Sign In</button>
+        <form class="B" id="new-request-form">
+            <input id="new-request-request_for" class="B" request_for="credentials[request_for]" type="text" placeholder="request_for">
+            <input id="new-request-req_funds" class="B" req_funds="credentials[req_funds]" type="text" placeholder="req_funds">
+            <input id="new-request-req_type" class="B" req_type="credentials[req_type]" type="text" placeholder="req_type">
+            <input id="new-request-info" class="B" info="credentials[info]" type="text" placeholder="info">
+            <input id="new-request-pass_grade" class="B" pass_grade="credentials[pass_grade]" type="text" placeholder="pass_grade">
+            <input id="new-request-event_date" class="B" event_date="credentials[event_date]" type="date" placeholder="event_date">
+            <button onclick="makeRequest()">New Request</button>
           </form>
       </section>
 
-    <button id="getEmployees" onclick="getEmployee()">View Employee Info</button>
+      <!-- <div id="seeEmployee" method="post">
+        <input id="seeEmployeeById" name="employeeId" type="text" placeholder="id">
+        <button id="getEmployees" onclick="getEmployee()">View Employee Info</button>
+      </div> -->
 
-    <div div="container">
+      <div class="B" id="seeRequests" method="post">
+        <input class="B" id="empReqId" name="empReqId" type="text" placeholder="EmployeeId">
+        <input class="B" id="seeRequestById" name="requestId" type="text" placeholder="requestId">
+        <button id="getRequests" onclick="getRequests()">View Relevent Requests</button>
+      </div>
+
+    <div id="employeeTable" div="container">
         <table class="table table-striped table-bordered table-hover">
             <tr>
                 <th>Employee Info</th>
@@ -57,8 +66,85 @@
                 <td id="name">-</td>
             </tr>
             <tr>
+                <td>Employee Id</td>
+                <td id="employee_id">-</td>
+            </tr>
+            <tr>
                 <td>Supervisor Id</td>
                 <td id="supervisor_id">-</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><br/></div>
+    <div id="Approval">-</div>
+    <div id="requestTable" div="container">
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>Request Info</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Request ID</td>
+                <td id="request_id">-</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td id="req_name">-</td>
+            </tr>
+            <tr>
+                <td>Request For</td>
+                <td id="request_for">-</td>
+            </tr>
+            <tr>
+                <td>Amount Requested</td>
+                <td id="req_funds">-</td>
+            </tr>
+            <tr>
+                <td>Request Type</td>
+                <td id="req_type">-</td>
+            </tr>
+            <tr>
+                <td>Descripton</td>
+                <td id="info">-</td>
+            </tr>
+            <tr>
+                <td>request for</td>
+                <td id="req_for">-</td>
+            </tr>
+            <tr>
+                <td>Additional Info</td>
+                <td id="added_info">-</td>
+            </tr>
+            <tr>
+                <td>Required Grade to pass</td>
+                <td id="pass_grade">-</td>
+            </tr>
+            <tr>
+                <td>Date of Event</td>
+                <td id="event_date">-</td>
+            </tr>
+            <tr>
+                <td>Submition Date</td>
+                <td id="submit_date">-</td>
+            </tr>
+            <tr>
+                <td>Has been Denied?</td>
+                <td id="is_denied">-</td>
+            </tr>
+            <tr>
+                <td>Reason for denial</td>
+                <td id="denied_reason">-</td>
+            </tr>
+            <tr>
+                <td>Has Been Approved?</td>
+                <td id="is_approved">-</td>
+            </tr>
+            <tr>
+                <td>Current Phase Id</td>
+                <td id="phase">-</td>
             </tr>
             
         </table>
