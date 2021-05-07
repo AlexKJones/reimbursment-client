@@ -221,7 +221,6 @@ function getRequests() {
     ourreqid = document.getElementById("seeRequestById").value
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-
         if (this.readyState == 4 && this.status == 200) {
             let employee = JSON.parse(this.responseText)
             employee = employee[0]
@@ -230,10 +229,7 @@ function getRequests() {
             depHead = 1
             benCo = 2
             if (user.name == employee.employee_name || user.employeeId == supervisor || user.employeeId == depHead || user.employeeId == benCo) {
-                document.getElementById("name").innerHTML = employee.employee_name
-                document.getElementById("employee_id").innerHTML = employee.employeeId
-                document.getElementById("supervisor_id").innerHTML = employee.employeeId -1
-
+                
                 document.getElementById("request_id").innerHTML = employee.requestId
                 document.getElementById("req_name").innerHTML = employee.employee_name
                 document.getElementById("request_for").innerHTML = employee.request_for
@@ -248,6 +244,7 @@ function getRequests() {
                 document.getElementById("denied_reason").innerHTML = employee.denied_reason
                 document.getElementById("is_approved").innerHTML = employee.is_approved
                 document.getElementById("phase").innerHTML = employee.phase
+                notification.innerText = "200 succefully found request"
             // } else if (user.employeeId == supervisor) {
             //     document.getElementById("name").innerHTML = employee.employee_name
             //     document.getElementById("employee_id").innerHTML = employee.employeeId
@@ -271,6 +268,8 @@ function getRequests() {
             } else {
                 alert("not logged in as relevant user")
             }
+        } else if (this.readyState == 4 && this.status == 404) {
+            notification.innerText = "404 request not found"
         }
 
     }
@@ -318,6 +317,9 @@ function login() {
 
 function logout() {
     event.preventDefault();
+    document.getElementById("name").innerHTML = ""
+    document.getElementById("employee_id").innerHTML = ""
+    document.getElementById("supervisor_id").innerHTML = ""
     notification.innerText = "Logged Out"
     user = "No User"   
 }
@@ -803,7 +805,7 @@ function deny() {
                 if (this.readyState == 4 && this.status == 200) {
                     
                     fillFields2()
-                    notification.innerText = "Supervisor requesting additional info"
+                    notification.innerText = "You Have Denied this request"
                 }
 
             }
