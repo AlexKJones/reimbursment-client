@@ -1,0 +1,34 @@
+@import '~bootstrap/scss/bootstrap';
+
+// color palette #CE6A6C  #EBADA1  #BED3C3 #4B919E #222F53
+
+body {
+  height: 100vh;
+  background-color:  #BED3C3;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222F53;
+  border: 5px dotted;
+  border-color: #4B919E;
+}
+
+div{
+border: 1px dotted blue;
+height: 55px;
+font-size: 30px;
+}
+
+section {
+  border-style: 5px solid;
+  border-color: blue;
+}
+
+.container {
+    
+}
+
+

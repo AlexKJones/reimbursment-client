@@ -17,23 +17,21 @@
 
     <section class="top-section">
 
-        <form class="B" id="sign-up-form">
+        <!-- <form class="B" id="sign-up-form">
           <input id="makeEmpName" class="B" name="credentials[name]" type="text" placeholder="Name">
           <input id="makeEmpDep" class="B" name="credentials[Department]" type="text" placeholder="Department">
           <input id="makeEmpSup" class="B" name="credentials[Supervisor]" type="text" placeholder="Supervisor">
           <button onclick="makeEmployee()">Sign Up</button>
-        </form>
+        </form> -->
 
         <div id="sign-in-form" method="post">
           <input class="B" id="nameField" name="credentials[name]" type="text" placeholder="name">
-          <button onclick="login()">Sign In</button>
+          <button id="loginButton" onclick="login()">Sign In</button>
+          <button id="logoutButton" onclick="logout()">Sign Out</button>
         </div>
 
-        <form id="sign-out">
-          <button onclick="logout()">Sign Out</button>
-        </form>
 
-        <form class="B" id="new-request-form">
+        <!-- <form class="B" id="new-request-form">
             <input id="new-request-request_for" class="B" request_for="credentials[request_for]" type="text" placeholder="request_for">
             <input id="new-request-req_funds" class="B" req_funds="credentials[req_funds]" type="text" placeholder="req_funds">
             <input id="new-request-req_type" class="B" req_type="credentials[req_type]" type="text" placeholder="req_type">
@@ -41,13 +39,8 @@
             <input id="new-request-pass_grade" class="B" pass_grade="credentials[pass_grade]" type="text" placeholder="pass_grade">
             <input id="new-request-event_date" class="B" event_date="credentials[event_date]" type="date" placeholder="event_date">
             <button onclick="makeRequest()">New Request</button>
-          </form>
+          </form> -->
       </section>
-
-      <!-- <div id="seeEmployee" method="post">
-        <input id="seeEmployeeById" name="employeeId" type="text" placeholder="id">
-        <button id="getEmployees" onclick="getEmployee()">View Employee Info</button>
-      </div> -->
 
       <div class="B" id="seeRequests" method="post">
         <input class="B" id="empReqId" name="empReqId" type="text" placeholder="EmployeeId">
@@ -64,12 +57,12 @@
             <tr>
                 <td>Name</td>
                 <td id="name">-</td>
+                <td>Notifications</td>
+                <td id="noti">-</td>
             </tr>
             <tr>
                 <td>Employee Id</td>
                 <td id="employee_id">-</td>
-            </tr>
-            <tr>
                 <td>Supervisor Id</td>
                 <td id="supervisor_id">-</td>
             </tr>
@@ -85,24 +78,18 @@
             <tr>
                 <th>Request Info</th>
                 <th>Value</th>
-            </tr>
-            <tr>
                 <td>Request ID</td>
                 <td id="request_id">-</td>
             </tr>
             <tr>
                 <td>Name</td>
                 <td id="req_name">-</td>
-            </tr>
-            <tr>
                 <td>Request For</td>
                 <td id="request_for">-</td>
             </tr>
             <tr>
                 <td>Amount Requested</td>
                 <td id="req_funds">-</td>
-            </tr>
-            <tr>
                 <td>Request Type</td>
                 <td id="req_type">-</td>
             </tr>
@@ -111,47 +98,48 @@
                 <td id="info">-</td>
             </tr>
             <tr>
-                <td>request for</td>
-                <td id="req_for">-</td>
-            </tr>
-            <tr>
                 <td>Additional Info</td>
                 <td id="added_info">-</td>
-            </tr>
-            <tr>
                 <td>Required Grade to pass</td>
                 <td id="pass_grade">-</td>
             </tr>
             <tr>
-                <td>Date of Event</td>
-                <td id="event_date">-</td>
+                
             </tr>
             <tr>
+                <td>Date of Event</td>
+                <td id="event_date">-</td>
                 <td>Submition Date</td>
                 <td id="submit_date">-</td>
             </tr>
             <tr>
                 <td>Has been Denied?</td>
                 <td id="is_denied">-</td>
-            </tr>
-            <tr>
                 <td>Reason for denial</td>
                 <td id="denied_reason">-</td>
             </tr>
             <tr>
                 <td>Has Been Approved?</td>
                 <td id="is_approved">-</td>
-            </tr>
-            <tr>
                 <td>Current Phase Id</td>
                 <td id="phase">-</td>
+            </tr>
+            <tr>
+                <td><button id="approve" onclick="approve()">Approve</button></td>
+                <td><button id="getMoreInfo" onclick="getMoreInfo()">request More Info</button></td>
+                <td><input id="denial_reason" name="denial_reason" type="text" placeholder="Denail Reason"></td>
+                <td><button id="deny" onclick="deny()">Deny Request</button></td>
+            </tr>
+            <tr>
+                <td><button id="addInfo" onclick="addInfo()">Submit Additional Info</button></td>
+                <td><input id="add_info" name="add_info" type="text" placeholder="Additional Info"></td>
+                <td><button id="changeFunds" onclick="change_funds()">Change requested funds</button></td>
+                <td><input id="change_funds" name="change_funds" type="text" placeholder="500"></td>
             </tr>
             
         </table>
     </div>
 
 </body>
-<script src="scripts.js">
-
-</script>
+<script src="scripts.js"></script>
 </html>
